@@ -2,4 +2,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title,
+.subtitle {
+  text-align: center;
+  margin: 20px;
+}
+
+.city-name {
+  font-size: 25px;
+  max-width: 300px;
+}
+
+.mybtn {
+  margin: 20px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  border-radius: 15px;
 }/*# sourceMappingURL=style.css.map */
