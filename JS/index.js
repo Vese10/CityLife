@@ -1,28 +1,27 @@
 const btn = document.querySelector('button');
 const div = document.querySelector('div');
-const paragrafo = document.createElement('p');
 
-/*
-function addParagrafo(){
-  paragrafo.textContent = 'Elemento creato dinamicamente. ';
-  div.appendChild(paragrafo);
-}
+function takeInfo() {
+  let city = document.getElementById('cityInput').value.toLowerCase();
+  const url = `https://api.teleport.org/api/urban_areas/slug:${city}/scores/`;
 
-btn.addEventListener('click', addParagrafo);
-*/
-
-
-
-function takeInfo(){
-  const city = document.querySelector('#cityInput').value;
-  
-
-  fetch(`https://api.teleport.org/api/urban_areas/slug:${city}/scores/`)
-  .then(response => response.json())
-  .then(json => {
-    classeFetch = json;
-    console.log(json.summary);
-  });
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Errore nella richiesta');
+      }
+      return response.json();
+    })
+    .then(json => {
+      console.log(json.summary);
+      const paragrafo = document.createElement('p');
+      paragrafo.textContent = city;
+      div.appendChild(paragrafo);
+    })
+    .catch(error => {
+      console.error('Si è verificato un errore durante la richiesta:', error);
+    });
 }
 
 btn.addEventListener('click', takeInfo);
+
