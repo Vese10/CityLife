@@ -12,12 +12,27 @@ const cityScore = document.createElement('p');
 const cityNotFound = document.createElement('p');
   cityNotFound.textContent = '';
   div.appendChild(cityNotFound);
+const cityCategories = document.createElement('p');
+  cityCategories.textContent = '';
+  div.appendChild(cityCategories);
 
 function handleSuccessInfo(json) {
   cityNotFound.textContent = '';
 
   // Create city summary paragraph
   citySummary.textContent = json.summary;
+
+  // Create city categories paragraphs
+  if (json.categories && json.categories.length > 0) {
+    cityCategories.textContent = 'Categories:';
+    
+    // Create a separate paragraph for each category and score
+    json.categories.forEach(category => {
+      const categoryParagraph = document.createElement('p');
+      categoryParagraph.textContent = `${category.name}: ${category.score_out_of_10.toFixed(2)} out of 10.`;
+      div.appendChild(categoryParagraph);
+    });
+  }
 
   // Create city score paragraph
   cityScore.textContent = "The teleport city score is: " + json.teleport_city_score.toFixed(2) + " out of 100.";
@@ -35,6 +50,7 @@ function handleFailure(error) {
 
   cityName.textContent = '';
   citySummary.textContent = '';
+  cityCategories.textContent = '';
   cityScore.textContent = '';
   console.error('There is an error in the request:', error);
   cityNotFound.textContent = 'Your city is not in our database. Please try again.';
