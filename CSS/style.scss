@@ -5,27 +5,52 @@
   }
 
 .main{
+  position: relative;
   display: flex;
   align-items: center;
-  flex-direction: column;  
+  flex-direction: column;
 }
 
-.title,
+.world{
+  position: fixed;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title{
+  padding-top: 100px;
+  text-align: center; 
+  margin: 20px;
+  font-size: 50px;
+}
+
 .subtitle {
   text-align: center; 
   margin: 20px;
+  font-size: 30px;
 }
 
 .city-name {
+  border: 2px solid #000000;
   font-size: 25px;  
   max-width: 300px;
+}
+
+input::placeholder{
+  padding-left: 1px;
+}
+
+input:focus{
+  padding-left: 10px;
 }
 
 .mybtn {
   margin: 20px;
   width: 150px;  
   height: 50px;
-  font-size: 20px;
-  border-radius: 15px;
+  font-size: 25px;
+  border-radius: 25px;
 }
   
