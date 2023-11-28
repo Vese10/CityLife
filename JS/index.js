@@ -67,18 +67,21 @@ async function fetchData(url, successCallback) {
 
 async function takeCity() {
   let city = document.getElementById('cityInput').value.toLowerCase();
+  city = city.replace(/ /g, "-");
   const url = `https://api.teleport.org/api/cities/?search=${city}`;
   fetchData(url, handleSuccessCity);
 }
 
 async function takeInfo() {
   let cityInfo = document.getElementById('cityInput').value.toLowerCase();
+  cityInfo = cityInfo.replace(/ /g, "-");
   const url = `https://api.teleport.org/api/urban_areas/slug:${cityInfo}/scores/`;
   fetchData(url, handleSuccessInfo);
 }
 
 async function takeCategories() {
   let cityInfo = document.getElementById('cityInput').value.toLowerCase();
+  cityInfo = cityInfo.replace(/ /g, "-");
   const url = `https://api.teleport.org/api/urban_areas/slug:${cityInfo}/scores/`;
   fetchData(url, handleSuccessCategories);
 }
