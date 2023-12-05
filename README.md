@@ -33,7 +33,7 @@ Distributed under the XYZ license. See ``LICENSE`` for more information.
 
 ## Contributing
 
-1. Fork it (<https://github.com/Vese10/vese10.github.io>)
+1. Fork it (<https://github.com/Vese10/CityLife>)
 2. Create your feature branch (`git checkout -b feature/sleepCounter`)
 3. Commit your changes (`git commit -am 'Add some sleepCounter'`)
 4. Push to the branch (`git push origin feature/sleepCounter`)
