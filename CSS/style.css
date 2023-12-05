@@ -56,7 +56,16 @@ input:focus {
   height: 50px;
   font-size: 25px;
   border-radius: 25px;
+  background-color: #ffffff;
   font-family: "Saira Condensed", sans-serif;
   font-weight: bold;
   cursor: pointer;
+}
+
+.mybtn:hover {
+  background-color: #F0D391;
+}
+
+.mybtn:active {
+  background-color: #fa6824;
 }/*# sourceMappingURL=style.css.map */
