@@ -24,18 +24,21 @@
   text-align: center;
   margin: 20px;
   font-size: 50px;
+  font-family: "Saira Condensed", sans-serif;
 }
 
 .subtitle {
   text-align: center;
   margin: 20px;
   font-size: 30px;
+  font-family: "Saira Condensed", sans-serif;
 }
 
 .city-name {
   border: 2px solid #000000;
   font-size: 25px;
   max-width: 300px;
+  font-family: "Saira Condensed", sans-serif;
 }
 
 input::placeholder {
@@ -44,6 +47,7 @@ input::placeholder {
 
 input:focus {
   padding-left: 10px;
+  font-family: "Saira Condensed", sans-serif;
 }
 
 .mybtn {
@@ -52,4 +56,6 @@ input:focus {
   height: 50px;
   font-size: 25px;
   border-radius: 25px;
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: bold;
 }/*# sourceMappingURL=style.css.map */

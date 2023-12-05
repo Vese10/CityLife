@@ -4,6 +4,8 @@
   box-sizing: border-box;
   }
 
+$first-font: 'Saira Condensed', sans-serif;
+
 .main{
   position: relative;
   display: flex;
@@ -24,18 +26,21 @@
   text-align: center; 
   margin: 20px;
   font-size: 50px;
+  font-family: $first-font;
 }
 
 .subtitle {
   text-align: center; 
   margin: 20px;
   font-size: 30px;
+  font-family: $first-font;
 }
 
 .city-name {
   border: 2px solid #000000;
   font-size: 25px;  
   max-width: 300px;
+  font-family: $first-font;
 }
 
 input::placeholder{
@@ -44,6 +49,7 @@ input::placeholder{
 
 input:focus{
   padding-left: 10px;
+  font-family: $first-font;
 }
 
 .mybtn {
@@ -52,5 +58,7 @@ input:focus{
   height: 50px;
   font-size: 25px;
   border-radius: 25px;
+  font-family: $first-font;
+  font-weight: bold;
 }
   
