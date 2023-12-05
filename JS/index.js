@@ -1,10 +1,15 @@
 const btn = document.querySelector('button');
 const div = document.querySelector('div');
 const cityName = document.createElement('p');
+cityName.classList.add('city');
 const citySummary = document.createElement('p');
+citySummary.classList.add('city-summary');
 const cityScore = document.createElement('p');
+cityScore.classList.add('city-score');
 const cityNotFound = document.createElement('p');
+cityNotFound.classList.add('city-not-found');
 const cityCategories = document.createElement('ul');
+cityCategories.classList.add('city-categories');
 
 div.appendChild(cityName);
 div.appendChild(citySummary);
@@ -16,8 +21,8 @@ let categoriesHandled = false; // Flag to track whether handleSuccessCategories 
 
 async function handleSuccessInfo(json) {
   cityNotFound.textContent = '';
-  citySummary.textContent = json.summary;
-  cityScore.textContent = `The teleport city score is: ${json.teleport_city_score.toFixed(2)} out of 100.`;
+  citySummary.innerHTML = json.summary;
+  cityScore.innerHTML = `The teleport city score is: <br> ${json.teleport_city_score.toFixed(2)} out of 100.`;
 }
 
 async function handleSuccessCategories(json) {
@@ -29,7 +34,8 @@ async function handleSuccessCategories(json) {
       cityCategories.textContent = 'Categories:';
       json.categories.forEach(category => {
         const categoryParagraph = document.createElement('li');
-        categoryParagraph.textContent = `${category.name}: ${category.score_out_of_10.toFixed(2)} out of 10.`;
+        categoryParagraph.classList.add('city-paragraph');
+        categoryParagraph.innerHTML = `${category.name}: <b>${category.score_out_of_10.toFixed(2)} out of 10.</b>`;
         cityCategories.appendChild(categoryParagraph);
       });
     } else {
@@ -48,6 +54,11 @@ function handleFailure(error) {
   citySummary.textContent = '';
   cityCategories.textContent = '';
   cityScore.textContent = '';
+  cityName.classList.add('city-info-error');
+  citySummary.classList.add('city-info-error');
+  cityCategories.classList.add('city-info-error');
+  cityScore.classList.add('city-info-error');
+  cityNotFound.classList.add('city-info-error');
   console.error('There is an error in the request:', error);
   cityNotFound.textContent = 'Your city is not in our database. Please try again.';
 }

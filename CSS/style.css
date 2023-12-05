@@ -20,7 +20,7 @@
 }
 
 .title {
-  padding-top: 100px;
+  padding-top: 60px;
   text-align: center;
   margin: 20px;
   font-size: 50px;
@@ -58,4 +58,5 @@ input:focus {
   border-radius: 25px;
   font-family: "Saira Condensed", sans-serif;
   font-weight: bold;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */
