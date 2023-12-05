@@ -3,6 +3,8 @@ const div = document.querySelector('div');
 const cityName = document.createElement('p');
 cityName.classList.add('city');
 const citySummary = document.createElement('p');
+citySummary.style.border = 'none';
+citySummary.style.backgroundColor = 'transparent';
 citySummary.classList.add('city-summary');
 const cityScore = document.createElement('p');
 cityScore.classList.add('city-score');
@@ -12,8 +14,8 @@ const cityCategories = document.createElement('ul');
 cityCategories.classList.add('city-categories');
 
 div.appendChild(cityName);
-div.appendChild(citySummary);
 div.appendChild(cityScore);
+div.appendChild(citySummary);
 div.appendChild(cityNotFound);
 div.appendChild(cityCategories);
 
@@ -22,6 +24,8 @@ let categoriesHandled = false; // Flag to track whether handleSuccessCategories 
 async function handleSuccessInfo(json) {
   cityNotFound.textContent = '';
   citySummary.innerHTML = json.summary;
+  citySummary.style.border = '2px solid #000000';
+  citySummary.style.backgroundColor = '#ffffff';
   cityScore.innerHTML = `The teleport city score is: <br> ${json.teleport_city_score.toFixed(2)} out of 100.`;
 }
 
@@ -52,6 +56,8 @@ async function handleSuccessCity(json) {
 function handleFailure(error) {
   cityName.textContent = '';
   citySummary.textContent = '';
+  citySummary.style.border = 'none';
+  citySummary.style.backgroundColor = 'transparent';
   cityCategories.textContent = '';
   cityScore.textContent = '';
   cityName.classList.add('city-info-error');

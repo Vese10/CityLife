@@ -12,11 +12,15 @@
 .city-summary {
   font-size: 25px;
   padding: 10px 20px;
+  border: 2px solid #000000;
+  margin: 10px;
+  background-color: #ffffff;
 }
 
 .city-score {
-  font-size: 30px;
+  font-size: 35px;
   font-weight: bold;
+  text-align: center;
 }
 
 .city-categories {
@@ -28,6 +32,9 @@
 .city-paragraph {
   margin-left: 20px;
   font-weight: normal;
+  border: 2px solid #000000;
+  margin: 10px;
+  background-color: #ffffff;
 }
 
 .city-info-error {
