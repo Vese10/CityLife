@@ -1,7 +1,7 @@
 # My 'City Life Quality' Project
 > Check the life quality in the main world cities!
 
-🔗PROJECT LINK:[CityLifeQuality](https://citylifestyle.netlify.app/)
+🔗PROJECT LINK:[CityLifeQuality](https://citylifequality.netlify.app/)
 
 This is an app created for the third project of Start2Impact University's master in Full Stack Development. 
 
