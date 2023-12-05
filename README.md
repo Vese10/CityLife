@@ -11,8 +11,17 @@ This is an app created for the third project of Start2Impact University's master
 ## Usage example
 
 The app is supposed to contact the Teleport API and return the chosen city's life quality. So you have simply to enter the city name and click on the button "take info".
+You have an example down here:
 
  [![Screenshot2.png](https://i.postimg.cc/x89FQBfZ/image2.png)](https://postimg.cc/XGDgcHyK)
+
+## Skills
+
+The skills used to create this project are:
+ - HTML;
+ - CSS;
+ - SCSS; 
+ - JavaScript;
 
 ## Author and Contacts
 
@@ -20,7 +29,7 @@ Veselin Hristov – [@instagram](https://instagram.com/vese.10?igshid=OGQ5ZDc2OD
 
 Distributed under the XYZ license. See ``LICENSE`` for more information.
 
-[https://github.com/Vese10](https://github.com/Vese10/vese10.github.io)
+[https://github.com/Vese10](https://github.com/Vese10)
 
 ## Contributing
 
