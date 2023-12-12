@@ -22,11 +22,15 @@ div.appendChild(cityCategories);
 let categoriesHandled = false; // Flag to track whether handleSuccessCategories has been executed
 
 async function handleSuccessInfo(json) {
-  cityNotFound.textContent = '';
-  citySummary.innerHTML = json.summary;
-  citySummary.style.border = '2px solid #000000';
-  citySummary.style.backgroundColor = '#ffffff';
-  cityScore.innerHTML = `The teleport city score is: <br> ${json.teleport_city_score.toFixed(2)} out of 100.`;
+  if (json && json.summary && json.teleport_city_score !== undefined) {
+    cityNotFound.textContent = '';
+    citySummary.innerHTML = json.summary;
+    citySummary.style.border = '2px solid #000000';
+    citySummary.style.backgroundColor = '#ffffff';
+    cityScore.innerHTML = `The teleport city score is: <br> ${json.teleport_city_score.toFixed(2)} out of 100.`;
+  } else {
+    handleFailure(new Error('Invalid data received'));
+  }
 }
 
 async function handleSuccessCategories(json) {
@@ -34,23 +38,36 @@ async function handleSuccessCategories(json) {
     cityNotFound.textContent = '';
     cityCategories.textContent = ''; // Clear existing content
 
-    if (json.categories && json.categories.length > 0) {
+    if (json && json.categories && Array.isArray(json.categories)) {
       cityCategories.textContent = 'Categories:';
       json.categories.forEach(category => {
         const categoryParagraph = document.createElement('li');
         categoryParagraph.classList.add('city-paragraph');
-        categoryParagraph.innerHTML = `${category.name}: <b>${category.score_out_of_10.toFixed(2)} out of 10.</b>`;
+        if (category.name && category.score_out_of_10 !== undefined) {
+          categoryParagraph.innerHTML = `${category.name}: <b>${category.score_out_of_10.toFixed(2)} out of 10.</b>`;
+        } else {
+          handleFailure(new Error('Invalid category data received'));
+        }
         cityCategories.appendChild(categoryParagraph);
       });
     } else {
-      cityCategories.textContent = 'No categories available for this city.';
+      handleFailure(new Error('Invalid category data received'));
     }
   }
 }
 
 async function handleSuccessCity(json) {
-  cityNotFound.textContent = '';
-  cityName.textContent = json._embedded["city:search-results"][0].matching_full_name;
+  if (json && json._embedded && json._embedded["city:search-results"] && json._embedded["city:search-results"].length > 0) {
+    const cityNameValue = json._embedded["city:search-results"][0].matching_full_name;
+    if (cityNameValue) {
+      cityNotFound.textContent = '';
+      cityName.textContent = cityNameValue;
+    } else {
+      handleFailure(new Error('Invalid city name data received'));
+    }
+  } else {
+    handleFailure(new Error('Invalid city data received'));
+  }
 }
 
 function handleFailure(error) {
